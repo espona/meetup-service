@@ -9,7 +9,7 @@ import org.springframework.data.solr.core.mapping.Indexed;
 import org.springframework.data.solr.core.mapping.Score;
 import org.springframework.data.solr.core.mapping.SolrDocument;
 
-@SolrDocument(collection = "item_meetup_rsvp")
+@SolrDocument(collection = "${solr.collection.rsvp}")
 public class RsvpDocument {
 	
 	@Id

@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 
 import es.backend.meetup.dto.RsvpDTO;
 import es.backend.meetup.repositories.RsvpDocument;
+import es.backend.meetup.repositories.SolrMeetupRepository;
 import es.backend.meetup.repositories.SolrMeetupRsvpRepository;
 import es.backend.meetup.stream.event.MeetupStreamRsvpReceivedEvent;
 
@@ -23,7 +24,7 @@ public class MeetupStreamEventListener {
 	private String streamUrl;
 	
 	@Autowired
-	private SolrMeetupRsvpRepository repository;
+	private SolrMeetupRepository repository;
 
     @EventListener
     public void onApplicationEvent(MeetupStreamRsvpReceivedEvent event) {

@@ -6,6 +6,7 @@ public class CityDTO {
 	private String name;
 	private String state;
 	private String country;
+	private Long events;
 	
 	/**
 	 * @return the id
@@ -56,13 +57,26 @@ public class CityDTO {
 		this.country = country;
 	}
 	
+	/**
+	 * @return the events
+	 */
+	public Long getEvents() {
+		return events;
+	}
+	/**
+	 * @param events the events to set
+	 */
+	public void setEvents(Long events) {
+		this.events = events;
+	}
 	public static String generateCityId(CityDTO city) {
 		return (city.country + "_" + city.state + "_" + city.name);
 	}
 	
 	@Override
 	public String toString() {
-		return "CityDTO [id=" + id + ", name=" + name + ", state=" + state + ", country=" + country + "]";
+		return "CityDTO [id=" + id + ", name=" + name + ", state=" + state + ", country=" + country + ", events="
+				+ events + "]";
 	}
-
+	
 }
