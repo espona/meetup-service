@@ -2,11 +2,6 @@ package es.backend.meetup.event;
 
 import org.springframework.context.ApplicationEvent;
 
-/**
- * @author lucia
- *
- */
-
 public class MeetupActionEvent extends ApplicationEvent {
 
 	private static final long serialVersionUID = 5603396312298108522L;
@@ -19,6 +14,7 @@ public class MeetupActionEvent extends ApplicationEvent {
 	private Action action;
 	
 	public MeetupActionEvent(Object source, Action action) {
+		
 		super(source);
 		this.action = action;
 	}
@@ -41,5 +37,4 @@ public class MeetupActionEvent extends ApplicationEvent {
 	public String toString() {
 		return "MeetupActionEvent [action=" + action + "]";
 	}
-
 }

@@ -4,7 +4,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.solr.core.query.result.FacetPage;
 import org.springframework.data.solr.repository.Facet;
 import org.springframework.data.solr.repository.Query;
-import org.springframework.stereotype.Component;
 
 import es.backend.meetup.model.RsvpDocument;
 

@@ -1,13 +1,8 @@
 package es.backend.meetup.service;
 
-
 import es.backend.meetup.dto.CitiesResultDTO;
 import es.backend.meetup.dto.GroupsNearResultDTO;
 
-/**
- * @author lucia
- *
- */
 public interface MeetupService {
 	
 	public GroupsNearResultDTO getNearGroups(double latitude, double longitude, int num);

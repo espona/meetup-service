@@ -17,7 +17,9 @@ import es.backend.meetup.stream.event.MeetupStreamEventPublisher;
 public class MeetupRSVPStreamListener  {
 
 	private boolean isListening = false;
+	
 	private boolean shouldStopListening = false;
+	
 	private int receivedRsvps = 0;
 	
 	@Autowired
@@ -26,26 +28,31 @@ public class MeetupRSVPStreamListener  {
 	@Value("${meetup.stream.url}")
 	private String streamUrl;
 
-	
     private static final Logger logger = LoggerFactory.getLogger(MeetupRSVPStreamListener.class);
         
     public void setStreamUrl(String url) {
+    	
     	this.streamUrl = url;
     }
     
     public void startListening() {
     
     	this.shouldStopListening = false;
+    	
     	if(this.isListening) {
+    	
     		logger.info("Already listening");
     	} else {
-        	this.isListening = true;
+    		
     		logger.info("Start Listening (" + this.streamUrl + ")...");
+    		
+        	this.isListening = true;
     		this.listen();
     	}
     }
     
     public void stopListening() {
+    	
 		logger.info("STOP Listening [" + this.receivedRsvps + "]...");
     	this.shouldStopListening = true;
     }
@@ -55,19 +62,28 @@ public class MeetupRSVPStreamListener  {
     	this.isListening = true;
     			    	
     	while(!this.shouldStopListening) {
+    		
     		try {
+    			
     			int currentCount = this.receivedRsvps;
 				CompletableFuture<RsvpDTO> futureRsvp = getRsvp();
-	    		logger.info("Rsvp [" + currentCount + "]: " + futureRsvp.get().toString());
+	    		
+				logger.info("Rsvp [" + currentCount + "]: " + futureRsvp.get().toString());
 	    		this.receivedRsvps += 1;
 	    		this.publisher.publishRsvpReceivedEvent(futureRsvp.get());
+	    		
 			} catch (InterruptedException e) {
+				
 				e.printStackTrace();
 				logger.error(e.getMessage() + ": " + e.toString());
+				
 			}  catch (ExecutionException e) {
+				
 				e.printStackTrace();
 				logger.error(e.getMessage() + ": " + e.toString());
+				
 			} catch (Exception e) {
+				
 				e.printStackTrace();
 				logger.error("Unexpected exception, STOPPING:" + e.getMessage() + ", " + e.toString());
 				this.shouldStopListening = true;
@@ -75,14 +91,14 @@ public class MeetupRSVPStreamListener  {
     	}
     	
     	this.isListening = false;
-    	
     }
     
     public CompletableFuture<RsvpDTO> getRsvp() throws InterruptedException {
     	
         RestTemplate restTemplate = new RestTemplate();
         RsvpDTO rsvpObject = restTemplate.getForObject(this.streamUrl, RsvpDTO.class);
-        // test purposes
+        
+        // TODO sleep just for test purposes,remove next line
         Thread.sleep(1000);
         
     	return CompletableFuture.completedFuture(rsvpObject);

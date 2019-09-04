@@ -5,7 +5,9 @@ import java.util.List;
 public class CitiesResultDTO {
 	
     private int num;
+    
     private String date;
+    
     private List<CityResultDTO> cities;
     
 	/**
@@ -14,30 +16,35 @@ public class CitiesResultDTO {
 	public int getNum() {
 		return num;
 	}
+	
 	/**
 	 * @param num the num to set
 	 */
 	public void setNum(int num) {
 		this.num = num;
 	}
+	
 	/**
 	 * @return the date
 	 */
 	public String getDate() {
 		return date;
 	}
+	
 	/**
 	 * @param date the date to set
 	 */
 	public void setDate(String date) {
 		this.date = date;
 	}
+	
 	/**
 	 * @return the cities
 	 */
 	public List<CityResultDTO> getCities() {
 		return cities;
 	}
+	
 	/**
 	 * @param cities the cities to set
 	 */
@@ -49,5 +56,4 @@ public class CitiesResultDTO {
 	public String toString() {
 		return "CitiesResultDTO [num=" + num + ", date=" + date + ", cities=" + cities + "]";
 	}
-
 }

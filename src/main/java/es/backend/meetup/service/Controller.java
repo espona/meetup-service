@@ -29,10 +29,14 @@ public class Controller {
     											@RequestParam(value="lon", required=true) double longitude,
     											@RequestParam(value="num", defaultValue = "5") int num) {
     	try {
+    		
     		return ResponseEntity.ok(meetupService.getNearGroups(latitude, longitude, num));
+    		
     	} catch (Exception e) {
+    		
     		logger.warn("Exception getting near groups: " + e.getMessage());
     		return ResponseEntity.status(500).body("Internal Server Error: " + e.getLocalizedMessage());
+    		
     	}
     }
 
@@ -40,43 +44,59 @@ public class Controller {
     public ResponseEntity<Object> getTopCities(@RequestParam(value="date", required=true) String date,
     									 	   @RequestParam(value="num", defaultValue = "5") int num) {
     	try {
+    		
     		return ResponseEntity.ok(meetupService.getTopCities(date, num));
+    		
     	} catch (Exception e) {
+    		
     		logger.warn("Exception getting top cties: " + e.getMessage());
     		return ResponseEntity.status(500).body("Internal Server Error: " + e.getLocalizedMessage());
     	}
     }
 
     @RequestMapping("/listen")
-    public ListenerStatusDTO startListener() {
+    public ResponseEntity<Object> startListener() {
     	
     	logger.info("Got a start listening request, sending event");
     	
-        publisher.publishEvent(new MeetupActionEvent(this, MeetupActionEvent.Action.START));
-        
-    	ListenerStatusDTO listenerStatusDTO = new ListenerStatusDTO();
-    	listenerStatusDTO.setSuccess(true);
-    	listenerStatusDTO.setMessage("Done start listener");
-    	
-    	logger.info("Response: " + listenerStatusDTO.toString());
-
-    	return listenerStatusDTO;
+    	try {
+    		
+	        publisher.publishEvent(new MeetupActionEvent(this, MeetupActionEvent.Action.START));
+	        
+	    	ListenerStatusDTO listenerStatusDTO = new ListenerStatusDTO();
+	    	listenerStatusDTO.setSuccess(true);
+	    	listenerStatusDTO.setMessage("Done start listener");
+	    	
+    	    return ResponseEntity.ok(listenerStatusDTO);
+    	   
+    	} catch (Exception e) {
+    		
+    		logger.warn("Exception starting the stream listener: " + e.getMessage());
+    		return ResponseEntity.status(500).body("Internal Server Error: " + e.getLocalizedMessage());
+    	}
     }
 
     @RequestMapping("/stop")
-    public ListenerStatusDTO stopListener() {
+    public ResponseEntity<Object> stopListener() {
     	
     	logger.info("Got a stop listening request");
     	
-        publisher.publishEvent(new MeetupActionEvent(this, MeetupActionEvent.Action.STOP));
+    	try {
+    		
+	        publisher.publishEvent(new MeetupActionEvent(this, MeetupActionEvent.Action.STOP));
+	    	
+	    	ListenerStatusDTO listenerStatusDTO = new ListenerStatusDTO();
+	    	listenerStatusDTO.setSuccess(true);
+	    	listenerStatusDTO.setMessage("Done stop listener");
+	    	
+	    	return ResponseEntity.ok(listenerStatusDTO);
+	    	
+	 	} catch (Exception e) {
+	 		
+	 		logger.warn("Exception stopping the stream listener: " + e.getMessage());
+	 		return ResponseEntity.status(500).body("Internal Server Error: " + e.getLocalizedMessage());
+	 	}
     	
-    	ListenerStatusDTO listenerStatusDTO = new ListenerStatusDTO();
-    	listenerStatusDTO.setSuccess(true);
-    	listenerStatusDTO.setMessage("Done stop listener");
-    	
-    	logger.info("Response: " + listenerStatusDTO.toString());
-
-    	return listenerStatusDTO;
     }    
 
 }

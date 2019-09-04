@@ -551,7 +551,15 @@ public class RsvpDocument {
 	// Generate the city identifier 
 	public String generateCityId() {
 		
-		return this.groupCountry + "_" + this.groupState + "_" + this.groupCity;
+		String cityId = this.groupCountry;
+		
+		if (this.groupState != null) {
+			cityId += "_" + this.groupState;
+		}
+		
+		cityId += "_" + this.groupCity;
+
+		return cityId.toLowerCase(); 
 	}
 	
 	// Generate the position as rpt

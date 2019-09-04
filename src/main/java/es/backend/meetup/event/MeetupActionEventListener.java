@@ -27,5 +27,4 @@ public class MeetupActionEventListener {
     		streamListener.stopListening();
     	}
     }
-    
 }

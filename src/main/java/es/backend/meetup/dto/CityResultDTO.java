@@ -3,6 +3,7 @@ package es.backend.meetup.dto;
 public class CityResultDTO {
 	
 	private CityDTO city;
+	
 	private Long events;
 	
 	/**
@@ -11,18 +12,21 @@ public class CityResultDTO {
 	public CityDTO getCity() {
 		return city;
 	}
+	
 	/**
 	 * @param city the city to set
 	 */
 	public void setCity(CityDTO city) {
 		this.city = city;
 	}
+	
 	/**
 	 * @return the events
 	 */
 	public Long getEvents() {
 		return events;
 	}
+	
 	/**
 	 * @param events the events to set
 	 */
@@ -34,7 +38,4 @@ public class CityResultDTO {
 	public String toString() {
 		return "CityResultDTO [city=" + city + ", events=" + events + "]";
 	}
-	
-	
-
 }

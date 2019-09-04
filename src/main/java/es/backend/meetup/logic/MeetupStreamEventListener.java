@@ -12,7 +12,6 @@ import org.springframework.stereotype.Component;
 import es.backend.meetup.dto.RsvpDTO;
 import es.backend.meetup.model.RsvpDocument;
 import es.backend.meetup.repositories.SolrMeetupRepository;
-import es.backend.meetup.repositories.SolrMeetupRsvpRepository;
 import es.backend.meetup.stream.event.MeetupStreamRsvpReceivedEvent;
 
 @Component
@@ -33,7 +32,7 @@ public class MeetupStreamEventListener {
         
         try {
         	
-        	repository.save(this.streamRsvpObject2SolrRsvpDocument(event.getRsvpDTO()));
+        	repository.save(this.streamRsvpObject2SolrRsvpDocument(event.getRsvpDTO()));    
         	
         } catch (Exception e) {
         	
@@ -53,6 +52,7 @@ public class MeetupStreamEventListener {
     	document.setGuests(dto.getGuests());
 
     	if (dto.getEvent() != null) {
+    		
 	    	document.setEventId(dto.getEvent().getEvent_id());
 	    	document.setEventName(dto.getEvent().getEvent_name());
 	    	document.setEventUrl(dto.getEvent().getEvent_url());
@@ -61,6 +61,7 @@ public class MeetupStreamEventListener {
     	}
     	
     	if (dto.getGroup() != null) {
+    		
 	    	document.setGroupId(dto.getGroup().getGroup_id());
 	    	document.setGroupName(dto.getGroup().getGroup_name());
 	    	document.setGroupUrlName(dto.getGroup().getGroup_urlname());
@@ -70,13 +71,13 @@ public class MeetupStreamEventListener {
 	    	document.setGroupCityId(document.generateCityId());;	
 	    	document.setGroupLat(dto.getGroup().getGroup_lat());
 	    	document.setGroupLon(dto.getGroup().getGroup_lon());
-	    	//document.setGroupLocation(document.generateGroupLocation());
 	    	document.setGroupPosition(document.generateGroupPosition());
 	    	//TODO: document.setGroupTopicName(groupTopicName);
 	    	//TODO: document.setGroupTopicUrlkey(groupTopicUrlkey);
     	}
     	
     	if (dto.getMember() != null) {
+    		
 	    	document.setMemberId(Long.toString(dto.getMember().getMember_id()));
 	    	document.setMemberName(dto.getMember().getMember_name());
 	    	document.setMemberPhoto(dto.getMember().getPhoto());
@@ -84,19 +85,19 @@ public class MeetupStreamEventListener {
     	}
     	
     	if (dto.getVenue() != null) {
+    		
     		document.setVenueId(Long.toString(dto.getVenue().getVenue_id()));
     		document.setVenueName(dto.getVenue().getVenue_name());
     		document.setVenueLat(dto.getVenue().getLat());
     		document.setVenueLon(dto.getVenue().getLon());
     	}
     	
-    	logger.info("Solr Document: " + document.toString() );
-
     	return document;
     	
     }
     
     private Date millis2Date(Long mtime) {
+    	
     	Date date = new Date(mtime);
     	return date;
     }

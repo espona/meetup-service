@@ -5,8 +5,11 @@ import java.util.List;
 public class GroupsNearResultDTO {
 	
 	private double latitude;
+	
     private double longitude;
+    
     private int num;
+    
     private List<GroupResultDTO> groups;
 	
     /**
@@ -70,5 +73,4 @@ public class GroupsNearResultDTO {
 		return "GroupNearResult [latitude=" + latitude + ", longitude=" + longitude + ", num=" + num + ", groups="
 				+ groups + "]";
 	}
-
 }

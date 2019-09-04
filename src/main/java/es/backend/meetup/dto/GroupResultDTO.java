@@ -39,5 +39,4 @@ public class GroupResultDTO {
 	public String toString() {
 		return "GroupResultDTO [group=" + group + ", distance=" + distance + "]";
 	}
-
 }
