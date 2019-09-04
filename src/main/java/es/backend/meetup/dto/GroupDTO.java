@@ -2,7 +2,7 @@ package es.backend.meetup.dto;
 
 public class GroupDTO {
 	
-	private long group_id;
+	private String group_id;
 	private String group_name;
 	private String group_city;
 	private String group_state;
@@ -14,13 +14,13 @@ public class GroupDTO {
 	/**
 	 * @return the group_id
 	 */
-	public long getGroup_id() {
+	public String getGroup_id() {
 		return group_id;
 	}
 	/**
 	 * @param group_id the group_id to set
 	 */
-	public void setGroup_id(long group_id) {
+	public void setGroup_id(String group_id) {
 		this.group_id = group_id;
 	}
 	/**

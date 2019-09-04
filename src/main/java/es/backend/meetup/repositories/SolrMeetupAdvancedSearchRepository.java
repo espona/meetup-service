@@ -2,9 +2,11 @@ package es.backend.meetup.repositories;
 
 import java.util.Date;
 
-import org.springframework.data.domain.Pageable;
+import org.apache.solr.client.solrj.response.GroupResponse;
 import org.springframework.data.solr.core.query.result.FacetPage;
 import org.springframework.data.solr.core.query.result.GroupPage;
+
+import es.backend.meetup.model.RsvpDocument;
 
 public interface SolrMeetupAdvancedSearchRepository {
 	
@@ -12,6 +14,6 @@ public interface SolrMeetupAdvancedSearchRepository {
     
     public GroupPage<RsvpDocument> findCitiesData(FacetPage<RsvpDocument> cities);
 
-    public GroupPage<RsvpDocument> findEventsNearby(double latitude, double longitude, int num, Pageable pageable);
+    public GroupResponse findGroupsNearby(double latitude, double longitude, int num);
 
 }

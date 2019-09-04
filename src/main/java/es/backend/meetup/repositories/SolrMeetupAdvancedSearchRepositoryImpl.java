@@ -1,14 +1,23 @@
 package es.backend.meetup.repositories;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
+import org.apache.solr.client.solrj.SolrClient;
+import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.client.solrj.beans.Field;
+import org.apache.solr.client.solrj.request.QueryRequest;
+import org.apache.solr.client.solrj.response.GroupResponse;
+import org.apache.solr.client.solrj.response.QueryResponse;
+import org.apache.solr.common.params.MapSolrParams;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,8 +25,12 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.solr.core.SolrOperations;
+import org.springframework.data.solr.core.geo.GeoConverters;
+import org.springframework.data.solr.core.geo.Point;
 import org.springframework.data.solr.core.query.Criteria;
+import org.springframework.data.solr.core.query.DistanceField;
 import org.springframework.data.solr.core.query.FacetOptions;
 import org.springframework.data.solr.core.query.FacetQuery;
 import org.springframework.data.solr.core.query.FilterQuery;
@@ -31,12 +44,16 @@ import org.springframework.data.solr.core.query.result.FacetEntry;
 import org.springframework.data.solr.core.query.result.FacetPage;
 import org.springframework.data.solr.core.query.result.GroupPage;
 
+import es.backend.meetup.model.RsvpDocument;
 import es.backend.meetup.service.MeetupServiceImpl;
 
 public class SolrMeetupAdvancedSearchRepositoryImpl implements SolrMeetupAdvancedSearchRepository {
 
 	@Autowired
 	private SolrOperations solrTemplate;
+	
+	@Autowired
+	private SolrClient solrClient;
 	
 	@Value("${solr.collection.rsvp}")
 	private String collection;
@@ -104,15 +121,50 @@ public class SolrMeetupAdvancedSearchRepositoryImpl implements SolrMeetupAdvance
 	}
 
 	@Override
-	public GroupPage<RsvpDocument> findEventsNearby(double latitude, double longitude, int num, Pageable pageable) {
-		// TODO Auto-generated method stub
+	public GroupResponse findGroupsNearby(double latitude, double longitude, int num) {
+		// http://localhost:8988/solr/item_meetup_rsvp/select?q=*:*&rows=3&group=true&group.field=group_id&pt=-8.40%2043.37&sfield=position&sort=geodist()%20asc&fl=group_name,group_city_id,distance:geodist()
+				
 		
-		/*
-		 * FilterQuery fq = new SimpleFilterQuery(new Criteria("store")
-  .near(new Point(48.305478, 14.286699), new Distance(5)));
-query.addFilterQuery(fq);
-		 */
-		return null;
+		// Build query
+		final Map<String, String> queryParamMap = new HashMap<String, String>();
+
+		// Free text search
+		queryParamMap.put("q", "*:*");
+		
+		// Group
+		queryParamMap.put("group", "true");
+		queryParamMap.put("group.field", "group_id");
+		queryParamMap.put("group.limit", "1");
+
+		// Results maximum number and offset
+		queryParamMap.put("start", "0");
+		queryParamMap.put("rows", "" + num);
+
+		// sort by score when there is a search term
+		queryParamMap.put("sort", "geodist() asc");
+		queryParamMap.put("pt", longitude + " " + latitude);
+		queryParamMap.put("sfield", "position");
+		queryParamMap.put("fl", "*,distance:geodist()");
+
+		logger.info(" -> SOLR QUERY: " + queryParamMap.toString());
+
+		// Build and perform request
+		MapSolrParams queryParams = new MapSolrParams(queryParamMap);
+		QueryRequest request = new QueryRequest(queryParams);
+		
+		try {
+			final QueryResponse response = (QueryResponse) request.process(solrClient, collection);
+			GroupResponse groupResponse = response.getGroupResponse();
+			logger.info("GOT " + response.getGroupResponse());
+			
+			return groupResponse;
+
+		} catch (SolrServerException | IOException e) {
+			e.printStackTrace();
+			logger.warn("Exception when processing Solr request: " + e.getMessage());
+			return null;
+		}
+		
 	}
 
 }

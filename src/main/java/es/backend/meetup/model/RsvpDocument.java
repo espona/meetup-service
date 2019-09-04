@@ -1,4 +1,4 @@
-package es.backend.meetup.repositories;
+package es.backend.meetup.model;
 
 import java.util.Date;
 import java.util.List;
@@ -9,7 +9,7 @@ import org.springframework.data.solr.core.mapping.Indexed;
 import org.springframework.data.solr.core.mapping.Score;
 import org.springframework.data.solr.core.mapping.SolrDocument;
 
-@SolrDocument(collection = "${solr.collection.rsvp}")
+@SolrDocument(collection = "item_meetup_rsvp")
 public class RsvpDocument {
 	
 	@Id
@@ -74,7 +74,7 @@ public class RsvpDocument {
 
     @Indexed(name = "group_lon")
     private Double groupLon;
-
+    
     @Indexed(name = "position") 
     private String groupPosition; // GPS location "POINT (lon, lat)", for example "POINT (-8.3776545 43.3362)"
 
@@ -106,11 +106,13 @@ public class RsvpDocument {
 
     //Calculated fields (do not index)
   	
-    @Field 
+    @Field
   	private Float distance; // Distance in km for spatial queries
   	
     @Score
     private Float score;
+
+
 
 	/**
 	 * @return the id
@@ -129,7 +131,7 @@ public class RsvpDocument {
 	/**
 	 * @return the rsvpMtime
 	 */
-	public Long isRsvpMtime() {
+	public Long getRsvpMtime() {
 		return rsvpMtime;
 	}
 
@@ -143,7 +145,7 @@ public class RsvpDocument {
 	/**
 	 * @return the response
 	 */
-	public Boolean isResponse() {
+	public Boolean getResponse() {
 		return response;
 	}
 
@@ -322,7 +324,6 @@ public class RsvpDocument {
 		this.groupCity = groupCity;
 	}
 
-	
 	/**
 	 * @return the groupCityId
 	 */
@@ -401,10 +402,10 @@ public class RsvpDocument {
 	}
 
 	/**
-	 * @param position the groupPosition to set
+	 * @param groupPosition the groupPosition to set
 	 */
-	public void setGroupPosition(String position) {
-		this.groupPosition = position;
+	public void setGroupPosition(String groupPosition) {
+		this.groupPosition = groupPosition;
 	}
 
 	/**
@@ -572,6 +573,5 @@ public class RsvpDocument {
 				+ venueId + ", venueName=" + venueName + ", venueLat=" + venueLat + ", venueLon=" + venueLon
 				+ ", distance=" + distance + ", score=" + score + "]";
 	}
-	
 
 }

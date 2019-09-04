@@ -10,7 +10,7 @@ import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
 import es.backend.meetup.dto.RsvpDTO;
-import es.backend.meetup.repositories.RsvpDocument;
+import es.backend.meetup.model.RsvpDocument;
 import es.backend.meetup.repositories.SolrMeetupRepository;
 import es.backend.meetup.repositories.SolrMeetupRsvpRepository;
 import es.backend.meetup.stream.event.MeetupStreamRsvpReceivedEvent;
@@ -37,7 +37,7 @@ public class MeetupStreamEventListener {
         	
         } catch (Exception e) {
         	
-        	e.getStackTrace();
+        	e.printStackTrace();
             logger.warn("Exception saving stream data as document: " + event.toString());
         }
         
@@ -52,34 +52,43 @@ public class MeetupStreamEventListener {
     	document.setResponse(dto.getResponse().equalsIgnoreCase("yes"));
     	document.setGuests(dto.getGuests());
 
-    	document.setEventId(dto.getEvent().getEvent_id());
-    	document.setEventName(dto.getEvent().getEvent_name());
-    	document.setEventUrl(dto.getEvent().getEvent_url());
-    	document.setEventTime(dto.getEvent().getTime());
-    	document.setEventDate(millis2Date(dto.getEvent().getTime()));
+    	if (dto.getEvent() != null) {
+	    	document.setEventId(dto.getEvent().getEvent_id());
+	    	document.setEventName(dto.getEvent().getEvent_name());
+	    	document.setEventUrl(dto.getEvent().getEvent_url());
+	    	document.setEventTime(dto.getEvent().getTime());
+	    	document.setEventDate(millis2Date(dto.getEvent().getTime()));
+    	}
     	
-    	document.setGroupId(Long.toString(dto.getGroup().getGroup_id()));
-    	document.setGroupName(dto.getGroup().getGroup_name());
-    	document.setGroupUrlName(dto.getGroup().getGroup_urlname());
-    	document.setGroupCountry(dto.getGroup().getGroup_country());
-    	document.setGroupState(dto.getGroup().getGroup_state());
-    	document.setGroupCity(dto.getGroup().getGroup_city());
-    	document.setGroupCityId(document.generateCityId());;	
-    	document.setGroupLat(dto.getGroup().getGroup_lat());
-    	document.setGroupLon(dto.getGroup().getGroup_lon());
-    	document.setGroupPosition(document.generateGroupPosition());
-    	//TODO: document.setGroupTopicName(groupTopicName);
-    	//TODO: document.setGroupTopicUrlkey(groupTopicUrlkey);
+    	if (dto.getGroup() != null) {
+	    	document.setGroupId(dto.getGroup().getGroup_id());
+	    	document.setGroupName(dto.getGroup().getGroup_name());
+	    	document.setGroupUrlName(dto.getGroup().getGroup_urlname());
+	    	document.setGroupCountry(dto.getGroup().getGroup_country());
+	    	document.setGroupState(dto.getGroup().getGroup_state());
+	    	document.setGroupCity(dto.getGroup().getGroup_city());
+	    	document.setGroupCityId(document.generateCityId());;	
+	    	document.setGroupLat(dto.getGroup().getGroup_lat());
+	    	document.setGroupLon(dto.getGroup().getGroup_lon());
+	    	//document.setGroupLocation(document.generateGroupLocation());
+	    	document.setGroupPosition(document.generateGroupPosition());
+	    	//TODO: document.setGroupTopicName(groupTopicName);
+	    	//TODO: document.setGroupTopicUrlkey(groupTopicUrlkey);
+    	}
     	
-    	document.setMemberId(Long.toString(dto.getMember().getMember_id()));
-    	document.setMemberName(dto.getMember().getMember_name());
-    	document.setMemberPhoto(dto.getMember().getPhoto());
-    	//TODO: document.setMemberOtherServices(memberOtherServices);
+    	if (dto.getMember() != null) {
+	    	document.setMemberId(Long.toString(dto.getMember().getMember_id()));
+	    	document.setMemberName(dto.getMember().getMember_name());
+	    	document.setMemberPhoto(dto.getMember().getPhoto());
+	    	//TODO: document.setMemberOtherServices(memberOtherServices);
+    	}
     	
-    	document.setVenueId(Long.toString(dto.getVenue().getVenue_id()));
-    	document.setVenueName(dto.getVenue().getVenue_name());
-    	document.setVenueLat(dto.getVenue().getLat());
-    	document.setVenueLon(dto.getVenue().getLon());
+    	if (dto.getVenue() != null) {
+    		document.setVenueId(Long.toString(dto.getVenue().getVenue_id()));
+    		document.setVenueName(dto.getVenue().getVenue_name());
+    		document.setVenueLat(dto.getVenue().getLat());
+    		document.setVenueLon(dto.getVenue().getLon());
+    	}
     	
     	logger.info("Solr Document: " + document.toString() );
 

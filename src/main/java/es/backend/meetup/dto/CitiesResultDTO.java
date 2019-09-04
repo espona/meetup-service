@@ -6,7 +6,7 @@ public class CitiesResultDTO {
 	
     private int num;
     private String date;
-    private List<CityDTO> cities;
+    private List<CityResultDTO> cities;
     
 	/**
 	 * @return the num
@@ -35,13 +35,13 @@ public class CitiesResultDTO {
 	/**
 	 * @return the cities
 	 */
-	public List<CityDTO> getCities() {
+	public List<CityResultDTO> getCities() {
 		return cities;
 	}
 	/**
 	 * @param cities the cities to set
 	 */
-	public void setCities(List<CityDTO> cities) {
+	public void setCities(List<CityResultDTO> cities) {
 		this.cities = cities;
 	}
 	

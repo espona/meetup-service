@@ -7,7 +7,7 @@ public class GroupsNearResultDTO {
 	private double latitude;
     private double longitude;
     private int num;
-    private List<GroupDTO> groups;
+    private List<GroupResultDTO> groups;
 	
     /**
 	 * @return the latitude
@@ -54,14 +54,14 @@ public class GroupsNearResultDTO {
 	/**
 	 * @return the groups
 	 */
-	public List<GroupDTO> getGroups() {
+	public List<GroupResultDTO> getGroups() {
 		return groups;
 	}
 
 	/**
 	 * @param groups the groups to set
 	 */
-	public void setGroups(List<GroupDTO> groups) {
+	public void setGroups(List<GroupResultDTO> groups) {
 		this.groups = groups;
 	}
 
