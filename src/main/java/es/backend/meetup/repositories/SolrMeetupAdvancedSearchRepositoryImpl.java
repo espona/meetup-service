@@ -135,6 +135,7 @@ public class SolrMeetupAdvancedSearchRepositoryImpl implements SolrMeetupAdvance
 		queryParamMap.put("group", "true");
 		queryParamMap.put("group.field", "group_id");
 		queryParamMap.put("group.limit", "1");
+		queryParamMap.put("group.sort", "rsvp_mtime desc");
 
 		// Results maximum number and offset
 		queryParamMap.put("start", "0");

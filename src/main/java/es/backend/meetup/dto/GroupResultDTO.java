@@ -4,6 +4,7 @@ public class GroupResultDTO {
 	
 	private GroupDTO group;
 	
+	// Distance in km
 	private Float distance;
 	
 	/**
