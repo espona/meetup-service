@@ -23,10 +23,18 @@ public class MeetupServiceTest {
     private MockMvc mockMvc;
 
     @Test
-    public void paramGreetingShouldReturnTailoredMessage() throws Exception {
+    public void nearGroupsShouldReturnNumResults() throws Exception {
 
-        this.mockMvc.perform(get("/near").param("num", "0"))
+        this.mockMvc.perform(get("/meetup/near").param("lat", "43.42").param("lon", "-3.71").param("num", "5"))
                 .andDo(print()).andExpect(status().isOk())
-                .andExpect(jsonPath("$.num").value("0"));
+                .andExpect(jsonPath("$.num").value("5"));
+    }
+
+    @Test
+    public void topCitiesShouldReturnNumResults() throws Exception {
+
+        this.mockMvc.perform(get("/meetup/topCities").param("date", "2019-09-04").param("num", "5"))
+                .andDo(print()).andExpect(status().isOk())
+                .andExpect(jsonPath("$.num").value("5"));
     }
 }

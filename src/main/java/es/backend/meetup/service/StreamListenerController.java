@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +21,7 @@ public class StreamListenerController {
 	@Autowired
     private ApplicationEventPublisher publisher;
 
-    @RequestMapping("/start")
+	@GetMapping("/start")
     public ResponseEntity<Object> startListener() {
     	
     	logger.info("Got a start listening request, sending event");
@@ -42,7 +43,7 @@ public class StreamListenerController {
     	}
     }
 
-    @RequestMapping("/stop")
+    @GetMapping("/stop")
     public ResponseEntity<Object> stopListener() {
     	
     	logger.info("Got a stop listening request");
