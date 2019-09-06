@@ -24,7 +24,7 @@ public class MeetupServiceController {
 
     @GetMapping("/near")
     @ApiOperation("Returns Given the num closest Groups in distance to a given location (latitude, longitude)")
-    public ResponseEntity<Object> getNearGroups(@RequestParam(value="Latitude of the reference location", required=true) double latitude,
+    public ResponseEntity<Object> getNearGroups(@RequestParam(value="lat", required=true) double latitude,
     											@ApiParam("Longitude of the reference location") @RequestParam(value="lon", required=true) double longitude,
     											@ApiParam("Maximum number of results") @RequestParam(value="num", required=true) int num) {
     	try {

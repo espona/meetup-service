@@ -2,6 +2,11 @@ package es.backend.meetup.dto;
 
 import java.util.List;
 
+import org.springframework.context.annotation.Import;
+
+import springfox.bean.validators.configuration.BeanValidatorPluginsConfiguration;
+
+@Import(BeanValidatorPluginsConfiguration.class)
 public class CitiesResultDTO {
 	
     private int num;
