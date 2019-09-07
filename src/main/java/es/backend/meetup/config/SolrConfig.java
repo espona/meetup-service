@@ -11,8 +11,7 @@ import org.springframework.data.solr.core.SolrTemplate;
 import org.springframework.data.solr.repository.config.EnableSolrRepositories;
 
 @Configuration
-@EnableSolrRepositories(basePackages = "es.backend.meetup.repositories")
-
+@EnableSolrRepositories(basePackages = "es.backend.meetup.repository")
 @ComponentScan
 public class SolrConfig {
  

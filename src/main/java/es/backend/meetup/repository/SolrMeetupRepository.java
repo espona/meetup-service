@@ -1,4 +1,4 @@
-package es.backend.meetup.repositories;
+package es.backend.meetup.repository;
 
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.solr.core.query.result.FacetPage;

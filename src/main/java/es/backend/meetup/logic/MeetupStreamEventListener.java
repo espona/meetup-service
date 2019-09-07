@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 
 import es.backend.meetup.dto.RsvpDTO;
 import es.backend.meetup.model.RsvpDocument;
-import es.backend.meetup.repositories.SolrMeetupRepository;
+import es.backend.meetup.repository.SolrMeetupRepository;
 import es.backend.meetup.stream.event.MeetupStreamRsvpReceivedEvent;
 
 @Component

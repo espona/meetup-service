@@ -2,16 +2,14 @@ package es.backend.meetup.dto;
 
 import java.util.List;
 
-public class GroupsNearResultDTO {
+public class GroupsNearResultDTO extends ResultDTO<GroupResultDTO> {
 	
 	private double latitude;
 	
     private double longitude;
     
     private int num;
-    
-    private List<GroupResultDTO> groups;
-	
+    	
     /**
 	 * @return the latitude
 	 */
@@ -54,23 +52,8 @@ public class GroupsNearResultDTO {
 		this.num = num;
 	}
 
-	/**
-	 * @return the groups
-	 */
-	public List<GroupResultDTO> getGroups() {
-		return groups;
-	}
-
-	/**
-	 * @param groups the groups to set
-	 */
-	public void setGroups(List<GroupResultDTO> groups) {
-		this.groups = groups;
-	}
-
 	@Override
 	public String toString() {
-		return "GroupNearResult [latitude=" + latitude + ", longitude=" + longitude + ", num=" + num + ", groups="
-				+ groups + "]";
+		return "[" + super.toString() + " GroupNearResult [latitude=" + latitude + ", longitude=" + longitude + ", num=" + num + "]]";
 	}
 }

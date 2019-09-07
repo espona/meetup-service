@@ -24,9 +24,9 @@ public class MeetupServiceController {
 
     @GetMapping("/near")
     @ApiOperation("Returns Given the num closest Groups in distance to a given location (latitude, longitude)")
-    public ResponseEntity<Object> getNearGroups(@RequestParam(value="lat", required=true) double latitude,
-    											@ApiParam("Longitude of the reference location") @RequestParam(value="lon", required=true) double longitude,
-    											@ApiParam("Maximum number of results") @RequestParam(value="num", required=true) int num) {
+    public ResponseEntity<Object> getNearGroups( @RequestParam(value="lat", required=true) Double latitude,
+    											 @RequestParam(value="lon", required=true) Double longitude,
+    											 @RequestParam(value="num", required=true) Integer num) {
     	try {
     		
     		return ResponseEntity.ok(meetupService.getNearGroups(latitude, longitude, num));
@@ -43,7 +43,7 @@ public class MeetupServiceController {
     @GetMapping("/topCities")
     @ApiOperation("Returns the top num cities sorted by the number of people attending events in that city on the given date (ISO format yyyy-mm-dd)")
     public ResponseEntity<Object> getTopCities(@ApiParam("Date in ISO format YYYY-MM-DD") @RequestParam(value="date", required=true) String date,
-    		                                   @ApiParam("Maximum number of results") @RequestParam(value="num", required=true) int num) {
+    		                                   @RequestParam(value="num", required=true) Integer num) {
     	try {
     		
     		return ResponseEntity.ok(meetupService.getTopCities(date, num));

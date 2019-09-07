@@ -14,15 +14,17 @@ import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Scope;
 import org.springframework.data.solr.core.query.result.FacetPage;
 import org.springframework.data.solr.core.query.result.GroupPage;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import es.backend.meetup.dto.CitiesResultDTO;
 import es.backend.meetup.dto.CityResultDTO;
+import es.backend.meetup.dto.ErrorDTO;
 import es.backend.meetup.dto.GroupResultDTO;
 import es.backend.meetup.dto.GroupsNearResultDTO;
 import es.backend.meetup.logic.SolrResultsConverter;
 import es.backend.meetup.model.RsvpDocument;
-import es.backend.meetup.repositories.SolrMeetupRepository;
+import es.backend.meetup.repository.SolrMeetupRepository;
 
 @Service
 @Scope(BeanDefinition.SCOPE_SINGLETON)
@@ -51,7 +53,7 @@ public class MeetupServiceImpl implements MeetupService {
     	groupNearResult.setLatitude(latitude);
     	groupNearResult.setLongitude(longitude);
     	groupNearResult.setNum(num);
-    	groupNearResult.setGroups(groupsResultList);
+    	groupNearResult.setResults(groupsResultList);
     	
     	logger.info("Response: " + groupNearResult.toString());
     	
@@ -81,8 +83,13 @@ public class MeetupServiceImpl implements MeetupService {
 		} catch (ParseException e) {
 			
 			e.printStackTrace();
-			logger.warn("Solr error: " + e.getMessage());
-			throw new IllegalArgumentException("Wrong date format, should be " + dateFormatString);
+			logger.warn("Date error: " + e.getMessage());
+			CitiesResultDTO citiesResultError = new CitiesResultDTO();
+			citiesResultError.setNum(num);
+			citiesResultError.setDate(date);
+			citiesResultError.setResults(null);
+			citiesResultError.setError(new ErrorDTO(HttpStatus.BAD_REQUEST, "Wrong date format, should be " + dateFormatString));
+			return citiesResultError;
 		}
 		    	
 		// build the wrapper result dto
@@ -90,7 +97,7 @@ public class MeetupServiceImpl implements MeetupService {
 
     	citiesResult.setNum(num);
     	citiesResult.setDate(date);
-    	citiesResult.setCities(cityResultList);
+    	citiesResult.setResults(cityResultList);
     	
     	logger.info("Response: " + citiesResult.toString());
 

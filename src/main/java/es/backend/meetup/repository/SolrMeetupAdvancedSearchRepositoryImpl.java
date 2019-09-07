@@ -1,4 +1,4 @@
-package es.backend.meetup.repositories;
+package es.backend.meetup.repository;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
