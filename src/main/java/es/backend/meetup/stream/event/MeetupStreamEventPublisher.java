@@ -1,11 +1,3 @@
-/**
-* MeetupStreamEventPublisher publishes a MeetupStreamRsvpReceivedEvent
-* every time a new RSVP Meetup object is received from the stream
-* 
-* @author Lucia de Espona
-*
-**/
-
 package es.backend.meetup.stream.event;
 
 import org.springframework.context.ApplicationEventPublisher;
@@ -13,6 +5,13 @@ import org.springframework.stereotype.Component;
 
 import es.backend.meetup.dto.RsvpDTO;
 
+/**
+* MeetupStreamEventPublisher publishes a MeetupStreamRsvpReceivedEvent
+* every time a new RSVP Meetup object is received from the stream
+* 
+* @author Lucia de Espona
+*
+**/
 @Component
 public class MeetupStreamEventPublisher {
 

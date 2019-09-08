@@ -1,11 +1,3 @@
-/**
-* ExceptionHandlerConfig configures the bean for handling exceptions 
-* on the REST service
-* 
-* @author Lucia de Espona
-* 
-*/
-
 package es.backend.meetup.config;
 
 import org.springframework.context.annotation.Bean;
@@ -13,6 +5,14 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.DispatcherServlet;
 
+
+/**
+* ExceptionHandlerConfig configures the bean for handling exceptions 
+* on the REST service
+* 
+* @author Lucia de Espona
+* 
+*/
 @ComponentScan
 @Configuration
 public class ExceptionHandlerConfig {

@@ -1,11 +1,3 @@
-/**
-* SolrMeetupAdvancedSearchRepository defines advanced queries
-* on the Solr repository
-* 
-* @author Lucia de Espona
-*
-**/
-
 package es.backend.meetup.repository;
 
 import java.util.Date;
@@ -16,6 +8,13 @@ import org.springframework.data.solr.core.query.result.GroupPage;
 
 import es.backend.meetup.model.RsvpDocument;
 
+/**
+* SolrMeetupAdvancedSearchRepository defines advanced queries
+* on the Solr repository
+* 
+* @author Lucia de Espona
+*
+**/
 public interface SolrMeetupAdvancedSearchRepository {
 	
     public FacetPage<RsvpDocument> findCityFacetsOnDate(Date date, int num);

@@ -1,3 +1,7 @@
+package es.backend.meetup.dto;
+
+import io.swagger.annotations.ApiModel;
+
 /**
 * CitiesResultDTO is the object returned when querying for
 * cities with most events on a date
@@ -5,11 +9,6 @@
 * @author Lucia de Espona
 * 
 */
-
-package es.backend.meetup.dto;
-
-import io.swagger.annotations.ApiModel;
-
 @ApiModel(description = "Contains the list of cities sorted descending by the number of events on that date")
 public class CitiesResultDTO extends ResultDTO<CityResultDTO> {
 	

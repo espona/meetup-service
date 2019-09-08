@@ -1,11 +1,3 @@
-/**
-* MeetupStreamEventListener waits for a MeetupStreamRsvpReceivedEvent
-* and saves the RSVP data received to the repository
-* 
-* @author Lucia de Espona
-*
-**/
-
 package es.backend.meetup.logic;
 
 import java.util.Date;
@@ -22,6 +14,13 @@ import es.backend.meetup.model.RsvpDocument;
 import es.backend.meetup.repository.SolrMeetupRepository;
 import es.backend.meetup.stream.event.MeetupStreamRsvpReceivedEvent;
 
+/**
+* MeetupStreamEventListener waits for a {@link es.backend.meetup.stream.event.MeetupStreamRsvpReceivedEvent}
+* and saves the RSVP data received to the repository
+* 
+* @author Lucia de Espona
+*
+**/
 @Component
 public class MeetupStreamEventListener {
 	

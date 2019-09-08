@@ -1,14 +1,3 @@
-/**
-* StreamListenerController defines the API to
-* request an action (start/stop) on the RSVP listener.
-* Methods are implemented here directly due to its 
-* simplicity.
-* 
-* @author Lucia de Espona
-*
-**/
-
-
 package es.backend.meetup.service;
 
 import org.slf4j.Logger;
@@ -28,6 +17,15 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
+/**
+* StreamListenerController defines the API to
+* request an action (start/stop) on the RSVP listener.
+* Methods are implemented here directly due to its 
+* simplicity.
+* 
+* @author Lucia de Espona
+*
+**/
 @RequestMapping("/listener")
 @RestController
 public class StreamListenerController {

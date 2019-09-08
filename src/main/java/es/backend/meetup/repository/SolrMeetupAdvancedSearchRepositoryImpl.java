@@ -1,11 +1,3 @@
-/**
-* SolrMeetupAdvancedSearchRepositoryImpl performs
-*  advanced queries on the Solr repository
-* 
-* @author Lucia de Espona
-*
-**/
-
 package es.backend.meetup.repository;
 
 import java.io.IOException;
@@ -44,6 +36,13 @@ import org.springframework.data.solr.core.query.result.GroupPage;
 
 import es.backend.meetup.model.RsvpDocument;
 
+/**
+* SolrMeetupAdvancedSearchRepositoryImpl performs
+*  advanced queries on the Solr repository
+* 
+* @author Lucia de Espona
+*
+**/
 public class SolrMeetupAdvancedSearchRepositoryImpl implements SolrMeetupAdvancedSearchRepository {
 
 	@Autowired

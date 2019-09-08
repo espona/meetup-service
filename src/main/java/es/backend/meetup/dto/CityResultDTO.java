@@ -1,3 +1,5 @@
+package es.backend.meetup.dto;
+
 /**
 * CityDTO is the object containing the city result
 * containing the city data and the number of events
@@ -6,9 +8,6 @@
 * @author Lucia de Espona
 *
 **/
-
-package es.backend.meetup.dto;
-
 public class CityResultDTO {
 	
 	private CityDTO city;

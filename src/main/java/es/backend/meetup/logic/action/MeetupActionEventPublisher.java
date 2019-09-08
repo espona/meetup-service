@@ -1,3 +1,8 @@
+package es.backend.meetup.logic.action;
+
+import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.stereotype.Component;
+
 /**
 * MeetupActionEventPublisher launches action event
 * to start/stop the Meetup stream listener when a
@@ -6,12 +11,6 @@
 * @author Lucia de Espona
 *
 **/
-
-package es.backend.meetup.logic.action;
-
-import org.springframework.context.ApplicationEventPublisher;
-import org.springframework.stereotype.Component;
-
 @Component
 public class MeetupActionEventPublisher {
 

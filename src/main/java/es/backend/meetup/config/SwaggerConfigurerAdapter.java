@@ -1,11 +1,3 @@
-/**
-* SwaggerConfigurerAdapter ensures the endpoints
-* related to Swagger are available
-* 
-* @author Lucia de Espona
-*
-*/
-
 package es.backend.meetup.config;
 
 import org.springframework.context.annotation.ComponentScan;
@@ -15,6 +7,13 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+/**
+* SwaggerConfigurerAdapter ensures the endpoints
+* related to Swagger are available
+* 
+* @author Lucia de Espona
+*
+*/
 @Configuration
 @EnableWebMvc
 @ComponentScan({ "es.backend.meetup.service" })

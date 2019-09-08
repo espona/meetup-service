@@ -1,3 +1,5 @@
+package es.backend.meetup.dto;
+
 /**
 * GroupDTO is the object containing the group data
 * obtained from the Meetup stream and returned in 
@@ -6,8 +8,6 @@
 * @author Lucia de Espona
 *
 **/
-package es.backend.meetup.dto;
-
 public class GroupDTO {
 	
 	private String group_id;

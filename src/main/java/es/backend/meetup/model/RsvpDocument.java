@@ -1,11 +1,3 @@
-/**
-* RsvpDocument is the document containing the RSVP data
-* stored in the Solr repository
-* 
-* @author Lucia de Espona
-*
-**/
-
 package es.backend.meetup.model;
 
 import java.util.Date;
@@ -17,6 +9,13 @@ import org.springframework.data.solr.core.mapping.Indexed;
 import org.springframework.data.solr.core.mapping.Score;
 import org.springframework.data.solr.core.mapping.SolrDocument;
 
+/**
+* RsvpDocument is the document containing the RSVP data
+* stored in the Solr repository
+* 
+* @author Lucia de Espona
+*
+**/
 @SolrDocument(collection = "item_meetup_rsvp")
 public class RsvpDocument {
 	

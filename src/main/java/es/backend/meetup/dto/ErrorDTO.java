@@ -1,3 +1,7 @@
+package es.backend.meetup.dto;
+
+import org.springframework.http.HttpStatus;
+
 /**
 * ErrorDTO is the object returned in 
 * case an error occurs during a request
@@ -5,11 +9,6 @@
 * @author Lucia de Espona
 *
 **/
-
-package es.backend.meetup.dto;
-
-import org.springframework.http.HttpStatus;
-
 public class ErrorDTO {
 	
 	private HttpStatus status;

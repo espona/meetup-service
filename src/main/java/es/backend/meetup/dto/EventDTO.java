@@ -1,3 +1,5 @@
+package es.backend.meetup.dto;
+
 /**
 * EventDTO is the object containing the event data
 * retrieved from the Meetup stream
@@ -5,8 +7,6 @@
 * @author Lucia de Espona
 *
 **/
-package es.backend.meetup.dto;
-
 public class EventDTO {
 	
 	private String event_id;

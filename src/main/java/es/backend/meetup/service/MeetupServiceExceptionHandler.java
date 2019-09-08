@@ -1,11 +1,3 @@
-/**
-* MeetupServiceExceptionHandler defines the handling
-* of errors during requests. An errorDTO is always returned
-* 
-* @author Lucia de Espona
-*
-**/
-
 package es.backend.meetup.service;
 
 import org.springframework.http.HttpHeaders;
@@ -25,6 +17,13 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 import es.backend.meetup.dto.ErrorDTO;
 
+/**
+* MeetupServiceExceptionHandler defines the handling
+* of errors during requests. An {@link es.backend.meetup.dto.ErrorDTO} is always returned
+* 
+* @author Lucia de Espona
+*
+**/
 @ControllerAdvice
 public class MeetupServiceExceptionHandler extends ResponseEntityExceptionHandler {
 

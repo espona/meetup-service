@@ -1,11 +1,3 @@
-/**
-* MeetupServiceImpl implements the methods to
-* request RSVP Meetup data
-* 
-* @author Lucia de Espona
-*
-**/
-
 package es.backend.meetup.service;
 
 import java.text.ParseException;
@@ -34,6 +26,13 @@ import es.backend.meetup.logic.SolrResultsConverter;
 import es.backend.meetup.model.RsvpDocument;
 import es.backend.meetup.repository.SolrMeetupRepository;
 
+/**
+* MeetupServiceImpl implements the methods to
+* request RSVP Meetup data
+* 
+* @author Lucia de Espona
+*
+**/
 @Service
 @Scope(BeanDefinition.SCOPE_SINGLETON)
 public class MeetupServiceImpl implements MeetupService {

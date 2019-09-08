@@ -1,11 +1,3 @@
-/**
-* SwaggerConfig configures the beans for Swagger
-* to have the API documentation
-* 
-* @author Lucia de Espona
-* 
-*/
-
 package es.backend.meetup.config;
 
 import org.springframework.context.annotation.Bean;
@@ -17,6 +9,13 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+/**
+* SwaggerConfig configures the beans for Swagger
+* to have the API documentation
+* 
+* @author Lucia de Espona
+* 
+*/
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {                                    

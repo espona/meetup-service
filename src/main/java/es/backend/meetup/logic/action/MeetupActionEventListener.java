@@ -1,12 +1,3 @@
-/**
-* MeetupActionEventListener listen for
-* an MeetupActionEvent event to start/stop the
-* Meetup stream listener
-* 
-* @author Lucia de Espona
-*
-**/
-
 package es.backend.meetup.logic.action;
 
 import org.slf4j.Logger;
@@ -17,6 +8,14 @@ import org.springframework.stereotype.Component;
 
 import es.backend.meetup.stream.MeetupRSVPStreamListener;
 
+/**
+* MeetupActionEventListener listen for
+* a {@link es.backend.meetup.logic.action.MeetupActionEvent} event to start/stop the
+* Meetup stream listener
+* 
+* @author Lucia de Espona
+*
+**/
 @Component
 public class MeetupActionEventListener {
 	

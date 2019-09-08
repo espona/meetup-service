@@ -1,10 +1,3 @@
-/**
-* SolrConfig configures the beans for the Sor repository
-* 
-* @author Lucia de Espona
-* 
-*/
-
 package es.backend.meetup.config;
 
 import org.apache.solr.client.solrj.SolrClient;
@@ -17,6 +10,12 @@ import org.springframework.data.solr.core.SolrOperations;
 import org.springframework.data.solr.core.SolrTemplate;
 import org.springframework.data.solr.repository.config.EnableSolrRepositories;
 
+/**
+* SolrConfig configures the beans for the Solr repository
+* 
+* @author Lucia de Espona
+* 
+*/
 @Configuration
 @EnableSolrRepositories(basePackages = "es.backend.meetup.repository")
 @ComponentScan

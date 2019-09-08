@@ -1,3 +1,7 @@
+package es.backend.meetup.dto;
+
+import java.util.List;
+
 /** 
 * ResultDTO is the generic object to return
 * the Meetup data request results.
@@ -5,11 +9,6 @@
 * @author Lucia de Espona
 * 
 */
-
-package es.backend.meetup.dto;
-
-import java.util.List;
-
 public abstract class ResultDTO<T> {
 	
 	private List<T> results;

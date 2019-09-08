@@ -1,0 +1,11 @@
+es.backend.meetup
+es.backend.meetup.config
+es.backend.meetup.dto
+es.backend.meetup.logic
+es.backend.meetup.logic.action
+es.backend.meetup.model
+es.backend.meetup.repository
+es.backend.meetup.service
+es.backend.meetup.service.test
+es.backend.meetup.stream
+es.backend.meetup.stream.event

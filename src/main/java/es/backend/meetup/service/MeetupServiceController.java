@@ -1,11 +1,3 @@
-/**
-* MeetupServiceController defines the API to
-* request Meetup RSVP data
-* 
-* @author Lucia de Espona
-*
-**/
-
 package es.backend.meetup.service;
 
 import org.slf4j.Logger;
@@ -28,6 +20,13 @@ import io.swagger.annotations.ApiResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
+/**
+* MeetupServiceController defines the API to
+* request Meetup RSVP data
+* 
+* @author Lucia de Espona
+*
+**/
 @RequestMapping("/meetup")
 @RestController
 public class MeetupServiceController {

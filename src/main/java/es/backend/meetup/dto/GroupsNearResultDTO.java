@@ -1,3 +1,7 @@
+package es.backend.meetup.dto;
+
+import io.swagger.annotations.ApiModel;
+
 /**
 * GroupsNearResultDTO is the object returned when querying for
 * groups closer to a given locations
@@ -5,11 +9,6 @@
 * @author Lucia de Espona
 * 
 */
-
-package es.backend.meetup.dto;
-
-import io.swagger.annotations.ApiModel;
-
 @ApiModel(description = "Contains the list of groups sorted ascending by the distance to the given location")
 public class GroupsNearResultDTO extends ResultDTO<GroupResultDTO> {
 	

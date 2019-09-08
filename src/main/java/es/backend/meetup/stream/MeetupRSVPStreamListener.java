@@ -1,11 +1,3 @@
-/**
-* MeetupRSVPStreamListener listens to the 
-* stream for RSVP Meetup data
-* 
-* @author Lucia de Espona
-*
-**/
-
 package es.backend.meetup.stream;
 
 import java.util.concurrent.CompletableFuture;
@@ -21,6 +13,13 @@ import org.springframework.web.client.RestTemplate;
 import es.backend.meetup.dto.RsvpDTO;
 import es.backend.meetup.stream.event.MeetupStreamEventPublisher;
 
+/**
+* MeetupRSVPStreamListener listens to the 
+* stream for RSVP Meetup data
+* 
+* @author Lucia de Espona
+*
+**/
 @Component
 public class MeetupRSVPStreamListener  {
 

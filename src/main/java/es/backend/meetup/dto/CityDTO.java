@@ -1,3 +1,5 @@
+package es.backend.meetup.dto;
+
 /**
 * CityDTO is the object containing the city data
 * to return in requests
@@ -5,9 +7,6 @@
 * @author Lucia de Espona
 *
 **/
-
-package es.backend.meetup.dto;
-
 public class CityDTO {
 	
 	private String id;

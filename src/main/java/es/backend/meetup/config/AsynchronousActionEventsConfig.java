@@ -1,10 +1,3 @@
-/**
-* AsynchronousActionEventsConfig configures the bean for asynchronous events
-* 
-* @author Lucia de Espona
-* 
-*/
-
 package es.backend.meetup.config;
 
 import org.springframework.context.annotation.Bean;
@@ -13,6 +6,12 @@ import org.springframework.context.event.ApplicationEventMulticaster;
 import org.springframework.context.event.SimpleApplicationEventMulticaster;
 import org.springframework.core.task.SimpleAsyncTaskExecutor;
 
+/**
+* AsynchronousActionEventsConfig configures the bean for asynchronous events
+* 
+* @author Lucia de Espona
+* 
+*/
 @Configuration
 public class AsynchronousActionEventsConfig {
 	

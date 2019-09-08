@@ -1,3 +1,5 @@
+package es.backend.meetup.dto;
+
 /**
 * RsvpDTO is the main object containing the 
 * RSVP data retrieved from the Meetup stream
@@ -5,9 +7,6 @@
 * @author Lucia de Espona
 *
 **/
-
-package es.backend.meetup.dto;
-
 public class RsvpDTO {
 		
 	private Long rsvp_id;
