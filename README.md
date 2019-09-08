@@ -25,13 +25,13 @@ The repository is Solr based (v.7.5.0) and its's configuration is included in [s
 
 Solr may not be the first choice repository for this use cases but I have experience with it and I found it more challenging and interesting to solve the exercise this way. A usual relational database would have been more than enough, for the two endpoints requested Solr's search capabilities aren't taken advantage of. 
 
-# Querying for top cities
+### Querying for top cities
 
 This can be performed in Solr with a simple group query by city, filtered by date, but one cannot sort the results by aggregate functions ( "COUNT(*)"-like). Therefore before making a group query to Solr I needed to make a facet one to get the first "num" cities sorted by number of events.
 
 There is another limitation related to this Solr inability to perform aggregate functions: one cannot easily count the *guests* on the RSVP to sort the top cities. This could be solved by creating extra RSVP documents in Solr (one per guests) which will complicate the CRUD repository logic a lot. Alternatively, setting up Solr as *SolrCloud* the repository could be queried as an RDBM with a usual SQL aggregate query through the parallel SQL interface. This last alternative is a bit of an overkill for this exercise and it showed also very bad performance on my local computer. Also, I must say than in my experience on Meetup and due to the high percentage of "no-show", the number of RSVP's will provide a better estimation for the real attendance to an event ;)
 
- # Querying for groups nearby
+### Querying for groups nearby
  
 Although this seemed quite straight forward due to Sorl spatial search capabilities, it turned out being difficult to implement. 
 
@@ -48,8 +48,7 @@ A test Solr server should be in place with a url specified at application-dev.pr
 
 ## Exception and error handling
 
-A basic mechanism of returning a ErrorDTO on any failed response has been set up for the most common exception cases (bad parameters, method not allowed, etc) but I am ware is not exhaustive.
-
+A basic mechanism of returning a ErrorDTO on any failed response has been set up for the most common exception cases (not found, bad parameters, method not allowed, etc) but I am ware is not exhaustive.
 
 ## Documentation
 
