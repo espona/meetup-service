@@ -2,7 +2,13 @@
 System that collects, processes and stores real-time RSVPs from Meetup.com and provides methods to query them to extract useful information.
 
 This is my first Spring Boot project, some parts have been simplified or are not exhaustive (in particular tests, error handling and documentation) due to lack of time.
- 
+
+# Requirements
+- Java 8
+- Maven
+- Apache Solr 7.5
+This project has been developed using [Spring Tool Suite 3](https://spring.io/guides/gs/sts/).
+
 # Overall structure
 The system has three main components:
 - An RSVP Stream Listener to collect the asynchronous data pieces from the Meetup stream
