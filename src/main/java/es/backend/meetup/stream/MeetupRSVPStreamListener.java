@@ -1,3 +1,11 @@
+/**
+* MeetupRSVPStreamListener listens to the 
+* stream for RSVP Meetup data
+* 
+* @author Lucia de Espona
+*
+**/
+
 package es.backend.meetup.stream;
 
 import java.util.concurrent.CompletableFuture;

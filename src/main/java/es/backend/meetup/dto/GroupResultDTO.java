@@ -1,3 +1,10 @@
+/**
+* GroupResultDTO is the object containing the group data
+* and the distance in km to return in requests
+* 
+* @author Lucia de Espona
+*
+**/
 package es.backend.meetup.dto;
 
 public class GroupResultDTO {

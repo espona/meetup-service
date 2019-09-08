@@ -1,3 +1,11 @@
+/**
+* SolrMeetupAdvancedSearchRepositoryImpl performs
+*  advanced queries on the Solr repository
+* 
+* @author Lucia de Espona
+*
+**/
+
 package es.backend.meetup.repository;
 
 import java.io.IOException;
@@ -102,9 +110,7 @@ public class SolrMeetupAdvancedSearchRepositoryImpl implements SolrMeetupAdvance
 				}
 			}
 		}
-		
-		logger.info("Got cities = " + cityIdList);
-				
+						
 		SimpleQuery groupQuery = new SimpleQuery(new Criteria("group_city_id").in(cityIdList));
 		
 		GroupOptions groupOptions = new GroupOptions().addGroupByField("group_city_id").setLimit(1);
@@ -152,7 +158,6 @@ public class SolrMeetupAdvancedSearchRepositoryImpl implements SolrMeetupAdvance
 			
 			final QueryResponse response = (QueryResponse) request.process(solrClient, collection);
 			GroupResponse groupResponse = response.getGroupResponse();
-			logger.info("GOT " + response.getGroupResponse());
 			
 			return groupResponse;
 

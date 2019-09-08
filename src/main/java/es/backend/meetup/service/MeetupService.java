@@ -1,3 +1,11 @@
+/**
+* MeetupServiceExceptionHandler defines the handling
+* of errors during requests. An errorDTO is always returned
+* 
+* @author Lucia de Espona
+*
+**/
+
 package es.backend.meetup.service;
 
 import es.backend.meetup.dto.CitiesResultDTO;

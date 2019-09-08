@@ -1,3 +1,10 @@
+/**
+* SolrConfig configures the beans for the Sor repository
+* 
+* @author Lucia de Espona
+* 
+*/
+
 package es.backend.meetup.config;
 
 import org.apache.solr.client.solrj.SolrClient;

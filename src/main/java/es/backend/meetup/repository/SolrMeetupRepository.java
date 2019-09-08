@@ -1,3 +1,11 @@
+/**
+* SolrMeetupRepository combines the basic CRUD functionality and
+* advanced queries on the Solr repository
+* 
+* @author Lucia de Espona
+*
+**/
+
 package es.backend.meetup.repository;
 
 import org.springframework.data.domain.Pageable;
@@ -7,7 +15,7 @@ import org.springframework.data.solr.repository.Query;
 
 import es.backend.meetup.model.RsvpDocument;
 
-public interface SolrMeetupRepository extends SolrMeetupRsvpRepository, SolrMeetupAdvancedSearchRepository {
+public interface SolrMeetupRepository extends SolrMeetupBasicRepository, SolrMeetupAdvancedSearchRepository {
 
     @Query(value = "*:*") 
     @Facet(fields = { "group_city_id" }, limit = -1)

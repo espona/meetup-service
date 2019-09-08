@@ -1,3 +1,11 @@
+/**
+* MeetupStreamRsvpReceivedEvent entity contains 
+* a RSVP Meetup object received from the stream
+* 
+* @author Lucia de Espona
+*
+**/
+
 package es.backend.meetup.stream.event;
 
 import org.springframework.context.ApplicationEvent;

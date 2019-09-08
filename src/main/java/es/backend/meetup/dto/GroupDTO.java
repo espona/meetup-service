@@ -1,3 +1,11 @@
+/**
+* GroupDTO is the object containing the group data
+* obtained from the Meetup stream and returned in 
+* requests.
+* 
+* @author Lucia de Espona
+*
+**/
 package es.backend.meetup.dto;
 
 public class GroupDTO {

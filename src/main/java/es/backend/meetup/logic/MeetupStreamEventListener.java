@@ -1,3 +1,11 @@
+/**
+* MeetupStreamEventListener waits for a MeetupStreamRsvpReceivedEvent
+* and saves the RSVP data received to the repository
+* 
+* @author Lucia de Espona
+*
+**/
+
 package es.backend.meetup.logic;
 
 import java.util.Date;

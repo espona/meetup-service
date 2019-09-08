@@ -1,3 +1,11 @@
+/**
+* SolrMeetupAdvancedSearchRepository defines advanced queries
+* on the Solr repository
+* 
+* @author Lucia de Espona
+*
+**/
+
 package es.backend.meetup.repository;
 
 import java.util.Date;

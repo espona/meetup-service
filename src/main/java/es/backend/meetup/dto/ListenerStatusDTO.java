@@ -1,5 +1,17 @@
+/**
+* ListenerStatusDTO is the object returned when requesting for
+* an action (start/stop) on the stream listener.
+* 
+* @author Lucia de Espona
+* 
+*/
+
+
 package es.backend.meetup.dto;
 
+import io.swagger.annotations.ApiModel;
+
+@ApiModel(description = "Status of the Meetup  RSVP stream listener")
 public class ListenerStatusDTO {
 
 	private boolean success;

@@ -1,4 +1,13 @@
-package es.backend.meetup.event;
+/**
+* MeetupActionEventListener listen for
+* an MeetupActionEvent event to start/stop the
+* Meetup stream listener
+* 
+* @author Lucia de Espona
+*
+**/
+
+package es.backend.meetup.logic.action;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

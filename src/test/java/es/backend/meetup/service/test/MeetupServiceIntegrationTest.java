@@ -2,6 +2,7 @@ package es.backend.meetup.service.test;
 
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -26,7 +27,8 @@ public class MeetupServiceIntegrationTest {
     public void nearGroupsShouldReturnNumResults() throws Exception {
 
         this.mockMvc.perform(get("/meetup/near").param("lat", "43.42").param("lon", "-3.71").param("num", "5"))
-                .andDo(print()).andExpect(status().isOk())
+                .andDo(print())
+                .andExpect(status().isOk())
                 .andExpect(jsonPath("$.num").value("5"));
     }
 
@@ -34,7 +36,17 @@ public class MeetupServiceIntegrationTest {
     public void topCitiesShouldReturnNumResults() throws Exception {
 
         this.mockMvc.perform(get("/meetup/topCities").param("date", "2019-09-04").param("num", "5"))
-                .andDo(print()).andExpect(status().isOk())
+                .andDo(print())
+                .andExpect(status().isOk())
                 .andExpect(jsonPath("$.num").value("5"));
     }
+    
+    @Test
+    public void whenHttpRequestMethodNotSupported() throws Exception {
+    	
+        this.mockMvc.perform(post("/meetup/topCities").param("date", "2019-09-04").param("num", "5"))
+        .andDo(print()).andExpect(status().isMethodNotAllowed())
+        .andExpect(jsonPath("$.status").value("METHOD_NOT_ALLOWED"));
+
+      }
 }

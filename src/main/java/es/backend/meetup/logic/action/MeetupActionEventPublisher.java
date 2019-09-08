@@ -1,4 +1,13 @@
-package es.backend.meetup.event;
+/**
+* MeetupActionEventPublisher launches action event
+* to start/stop the Meetup stream listener when a
+* event is received.
+* 
+* @author Lucia de Espona
+*
+**/
+
+package es.backend.meetup.logic.action;
 
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Component;

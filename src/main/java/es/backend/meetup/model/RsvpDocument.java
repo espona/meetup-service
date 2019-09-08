@@ -1,3 +1,11 @@
+/**
+* RsvpDocument is the document containing the RSVP data
+* stored in the Solr repository
+* 
+* @author Lucia de Espona
+*
+**/
+
 package es.backend.meetup.model;
 
 import java.util.Date;

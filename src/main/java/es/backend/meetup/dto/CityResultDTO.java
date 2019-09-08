@@ -1,3 +1,12 @@
+/**
+* CityDTO is the object containing the city result
+* containing the city data and the number of events
+* to return in requests
+* 
+* @author Lucia de Espona
+*
+**/
+
 package es.backend.meetup.dto;
 
 public class CityResultDTO {

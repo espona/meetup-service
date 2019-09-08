@@ -1,3 +1,11 @@
+/**
+* SwaggerConfig configures the beans for Swagger
+* to have the API documentation
+* 
+* @author Lucia de Espona
+* 
+*/
+
 package es.backend.meetup.config;
 
 import org.springframework.context.annotation.Bean;

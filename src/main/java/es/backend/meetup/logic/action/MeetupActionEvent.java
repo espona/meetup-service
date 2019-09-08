@@ -1,4 +1,12 @@
-package es.backend.meetup.event;
+/**
+* MeetupActionEvent is the event launched when
+* an action request (start/stop) is received 
+* 
+* @author Lucia de Espona
+*
+**/
+
+package es.backend.meetup.logic.action;
 
 import org.springframework.context.ApplicationEvent;
 

@@ -1,3 +1,11 @@
+/**
+* MeetupServiceImpl implements the methods to
+* request RSVP Meetup data
+* 
+* @author Lucia de Espona
+*
+**/
+
 package es.backend.meetup.service;
 
 import java.text.ParseException;
@@ -44,7 +52,6 @@ public class MeetupServiceImpl implements MeetupService {
 		List<GroupResultDTO> groupsResultList = new ArrayList<GroupResultDTO>();
 
 		GroupResponse groupResponse = solrMeetupRepository.findGroupsNearby(latitude, longitude, num);
-		logger.info("groupResponse = " + groupResponse);
 
 		groupsResultList.addAll(solrResultsConverter.solrGroupResult2GroupDtoList(groupResponse));	
 		
@@ -54,9 +61,7 @@ public class MeetupServiceImpl implements MeetupService {
     	groupNearResult.setLongitude(longitude);
     	groupNearResult.setNum(num);
     	groupNearResult.setResults(groupsResultList);
-    	
-    	logger.info("Response: " + groupNearResult.toString());
-    	
+    	    	
     	return groupNearResult;
 	}
 
@@ -99,8 +104,6 @@ public class MeetupServiceImpl implements MeetupService {
     	citiesResult.setDate(date);
     	citiesResult.setResults(cityResultList);
     	
-    	logger.info("Response: " + citiesResult.toString());
-
     	return citiesResult;
 	}
 	

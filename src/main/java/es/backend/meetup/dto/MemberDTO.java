@@ -1,3 +1,11 @@
+/**
+* MemberDTO is the object containing the member data
+* obtained from the Meetup stream.
+* 
+* @author Lucia de Espona
+*
+**/
+
 package es.backend.meetup.dto;
 
 public class MemberDTO {

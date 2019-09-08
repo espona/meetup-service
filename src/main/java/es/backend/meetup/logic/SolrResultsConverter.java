@@ -1,3 +1,11 @@
+/**
+* SolrResultsConverter converts the repository documents from the
+* query results to the dto to be returned in the requests
+* 
+* @author Lucia de Espona
+*
+**/
+
 package es.backend.meetup.logic;
 
 import java.util.ArrayList;

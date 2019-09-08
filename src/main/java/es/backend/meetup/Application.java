@@ -1,3 +1,10 @@
+/**
+* Application is the main project class
+* 
+* @author Lucia de Espona
+* 
+*/
+
 package es.backend.meetup;
 
 import org.springframework.boot.SpringApplication;

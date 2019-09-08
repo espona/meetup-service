@@ -1,3 +1,11 @@
+/**
+* VenueDTO is the object containing the venue data
+* obtained from the Meetup stream.
+* 
+* @author Lucia de Espona
+*
+**/
+
 package es.backend.meetup.dto;
 
 public class VenueDTO {
