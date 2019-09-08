@@ -62,7 +62,7 @@ Again, this only got so far due to my time limitations.
 
 Basic Javadoc documentation on the project classes can be found under the [/doc](https://github.com/espona/meetup-service/tree/master/doc) directory. 
 
-Regarding the API documentation, [Swagger2](https://swagger.io/) has been setup, providing information in an interactive way for all the endpoints, including parameters and responses in case of error or success.
+Regarding the API documentation, [Swagger2](https://swagger.io/) has been setup, providing information in an interactive way for all the endpoints, including parameters and responses in case of error or success (http://localhost:8080/api/swagger-ui.html). 
 
 
 
